@@ -1,7 +1,6 @@
 import streamlit as st
-from PIL import Image, ImageDraw, ImageFont, ImageEnhance
+from PIL import Image, ImageDraw, ImageFont
 import os
-import numpy as np
 
 # Título de la aplicación
 st.title("Emisor de tarjetas para miembros platino del Círculo Sagrado de Empomados por BioX")
@@ -30,26 +29,27 @@ if username:
             font = ImageFont.load_default()
             st.warning("No se encontró la fuente especificada. Se usará una fuente predeterminada.")
 
-        # Definir posición y estilo del texto
+        # Definir posición y estilo del texto para efecto grabado
         text_position = (550, 400)  # Posición aproximada para el nombre
-        base_color = (139, 10, 10)  # Color base (dorado oscuro)
-        outline_color = (128, 128, 128)  # Contorno gris
+        engraving_color = (80, 40, 40)  # Color oscuro para simular profundidad
+        highlight_color = (139, 0, 0)  # Color más claro para el borde superior
+        shadow_color = (0, 0, 0)  # Sombra negra para profundidad
 
         # Calcular el tamaño del texto usando textbbox
         bbox = draw.textbbox((0, 0), username, font=font)
         text_width = bbox[2] - bbox[0]
         text_height = bbox[3] - bbox[1]
 
-        # Crear una textura simple con ruido
-        noise = np.random.randint(0, 180, (text_height, text_width, 3), dtype=np.uint8)  # Suave ruido
-        textured_color = np.clip(base_color + noise - 15, 0, 255).astype(np.uint8)
+        # Efecto de grabado: sombra inferior y derecha
+        for offset in [(1, 1), (2, 2), (1, 2), (2, 1)]:
+            draw.text((text_position[0] + offset[0], text_position[1] + offset[1]), username, font=font, fill=shadow_color)
 
-        # Añadir efecto de contorno
-        for offset in [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]:
-            draw.text((text_position[0] + offset[0], text_position[1] + offset[1]), username, font=font, fill=outline_color)
+        # Texto grabado con color base
+        draw.text(text_position, username, font=font, fill=engraving_color)
 
-        # Añadir texto con textura (simplificado a un color base por limitación de draw.text)
-        draw.text(text_position, username, font=font, fill=tuple(base_color))
+        # Resaltar el borde superior para simular luz
+        for offset in [(-1, -1), (0, -1), (-1, 0)]:
+            draw.text((text_position[0] + offset[0], text_position[1] + offset[1]), username, font=font, fill=highlight_color)
 
         # Mostrar la imagen modificada
         st.image(img, caption="Tarjeta de miembro generada", use_column_width=True)
