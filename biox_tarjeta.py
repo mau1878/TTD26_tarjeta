@@ -35,8 +35,12 @@ if username:
         base_color = (139, 0, 0)  # Color base (dorado oscuro)
         outline_color = (128, 128, 128)  # Contorno gris
 
+        # Calcular el tamaño del texto usando textbbox
+        bbox = draw.textbbox((0, 0), username, font=font)
+        text_width = bbox[2] - bbox[0]
+        text_height = bbox[3] - bbox[1]
+
         # Crear una textura simple con ruido
-        text_width, text_height = draw.textsize(username, font=font)
         noise = np.random.randint(0, 30, (text_height, text_width, 3), dtype=np.uint8)  # Suave ruido
         textured_color = np.clip(base_color + noise - 15, 0, 255).astype(np.uint8)
 
