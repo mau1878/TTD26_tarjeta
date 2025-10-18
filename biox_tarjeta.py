@@ -31,7 +31,7 @@ if username:
 
         # Definir posición y estilo del texto (ajusta según el diseño de la imagen)
         text_position = (550, 400)  # Posición aproximada para el nombre
-        text_color = (139, 0, 0))  # Color dorado
+        text_color = (139, 0, 0)  # Color dorado
         outline_color = (128, 128, 128)  # Contorno negro
 
         # Añadir efecto de contorno
