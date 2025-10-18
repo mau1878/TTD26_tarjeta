@@ -14,7 +14,7 @@ else:
     st.stop()
 
 # Input para el nombre de usuario
-username = st.text_input("Ingrese su nombre de usuario (ej. BIOX-TECLA000)", value="BIOX-")
+username = st.text_input("Ingrese su nombre de usuario (ej. BIOX-TECLA000)", value="@")
 
 if username:
     draw = ImageDraw.Draw(img)
@@ -30,7 +30,7 @@ if username:
             st.warning("No se encontró la fuente especificada. Se usará una fuente predeterminada.")
 
         # Definir posición y estilo del texto (ajusta según el diseño de la imagen)
-        text_position = (400, 400)  # Posición aproximada para el nombre
+        text_position = (450, 400)  # Posición aproximada para el nombre
         text_color = (255, 165, 0)  # Color dorado
         outline_color = (0, 0, 0)  # Contorno negro
 
@@ -41,12 +41,6 @@ if username:
         # Añadir el texto principal
         draw.text(text_position, username, font=font, fill=text_color)
 
-        # Fecha de vencimiento fija (31/12/2025 como en la imagen)
-        expiry_position = (400, 450)
-        expiry_text = "31/12/2025"
-        draw.text(expiry_position, expiry_text, font=font, fill=text_color)
-        for offset in [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]:
-            draw.text((expiry_position[0] + offset[0], expiry_position[1] + offset[1]), expiry_text, font=font, fill=outline_color)
 
         # Mostrar la imagen modificada
         st.image(img, caption="Tarjeta de miembro generada", use_column_width=True)
