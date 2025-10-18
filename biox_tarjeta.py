@@ -32,7 +32,7 @@ if username:
 
         # Definir posición y estilo del texto
         text_position = (550, 400)  # Posición aproximada para el nombre
-        base_color = (139, 0, 0)  # Color base (dorado oscuro)
+        base_color = (139, 10, 10)  # Color base (dorado oscuro)
         outline_color = (128, 128, 128)  # Contorno gris
 
         # Calcular el tamaño del texto usando textbbox
