@@ -30,7 +30,7 @@ if username:
             st.warning("No se encontró la fuente especificada. Se usará una fuente predeterminada.")
 
         # Definir posición y estilo del texto (ajusta según el diseño de la imagen)
-        text_position = (450, 400)  # Posición aproximada para el nombre
+        text_position = (500, 400)  # Posición aproximada para el nombre
         text_color = (255, 165, 0)  # Color dorado
         outline_color = (0, 0, 0)  # Contorno negro
 
