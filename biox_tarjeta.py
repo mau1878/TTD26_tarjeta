@@ -41,7 +41,7 @@ if username:
         text_height = bbox[3] - bbox[1]
 
         # Crear una textura simple con ruido
-        noise = np.random.randint(0, 30, (text_height, text_width, 3), dtype=np.uint8)  # Suave ruido
+        noise = np.random.randint(0, 180, (text_height, text_width, 3), dtype=np.uint8)  # Suave ruido
         textured_color = np.clip(base_color + noise - 15, 0, 255).astype(np.uint8)
 
         # Añadir efecto de contorno
