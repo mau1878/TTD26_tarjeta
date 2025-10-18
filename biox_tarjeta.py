@@ -6,7 +6,7 @@ import os
 st.title("Emisor de tarjetas para miembros platino del Círculo Sagrado de Empomados por BioX")
 
 # Cargar la imagen proporcionada
-image_path = "biox.png"
+image_path = "biox_tarjeta.png"
 if os.path.exists(image_path):
     img = Image.open(image_path).convert("RGBA")
 else:
