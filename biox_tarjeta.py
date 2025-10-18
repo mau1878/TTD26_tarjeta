@@ -32,7 +32,7 @@ if username:
         # Definir posición y estilo del texto (ajusta según el diseño de la imagen)
         text_position = (550, 400)  # Posición aproximada para el nombre
         text_color = (255, 165, 0)  # Color dorado
-        outline_color = (0, 0, 0)  # Contorno negro
+        outline_color = (128, 128, 128)  # Contorno negro
 
         # Añadir efecto de contorno
         for offset in [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]:
