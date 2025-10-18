@@ -21,9 +21,9 @@ font_size = st.slider("Seleccione el tamaño del texto", min_value=20, max_value
 
 # Inputs para RGB y posición
 st.subheader("Personaliza el texto")
-r = st.slider("Rojo (R)", min_value=0, max_value=255, value=139)
-g = st.slider("Verde (G)", min_value=0, max_value=255, value=0)
-b = st.slider("Azul (B)", min_value=0, max_value=255, value=0)
+r = st.slider("Rojo (R)", min_value=0, max_value=255, value=70)
+g = st.slider("Verde (G)", min_value=0, max_value=255, value=25)
+b = st.slider("Azul (B)", min_value=0, max_value=255, value=18)
 x_pos = st.slider("Posición X", min_value=0, max_value=1000, value=540)
 y_pos = st.slider("Posición Y", min_value=0, max_value=800, value=410)
 
