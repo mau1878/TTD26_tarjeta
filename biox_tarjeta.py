@@ -30,7 +30,7 @@ if username:
             st.warning("No se encontró la fuente especificada. Se usará una fuente predeterminada.")
 
         # Definir posición y estilo del texto para efecto grabado
-        text_position = (550, 410)  # Posición aproximada para el nombre
+        text_position = (545, 410)  # Posición aproximada para el nombre
         engraving_color = (80, 40, 40)  # Color oscuro para simular profundidad
         highlight_color = (139, 0, 0)  # Color más claro para el borde superior
         shadow_color = (0, 0, 0)  # Sombra negra para profundidad
