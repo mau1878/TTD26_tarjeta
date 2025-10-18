@@ -16,13 +16,23 @@ else:
 # Input para el nombre de usuario
 username = st.text_input("Ingrese su nombre de usuario (ej. BIOX-TECLA000)", value="@")
 
+# Slider para elegir el tamaño del texto
+font_size = st.slider("Seleccione el tamaño del texto", min_value=20, max_value=60, value=40)
+
+# Inputs para RGB y posición
+st.subheader("Personaliza el texto")
+r = st.slider("Rojo (R)", min_value=0, max_value=255, value=139)
+g = st.slider("Verde (G)", min_value=0, max_value=255, value=0)
+b = st.slider("Azul (B)", min_value=0, max_value=255, value=0)
+x_pos = st.slider("Posición X", min_value=0, max_value=1000, value=540)
+y_pos = st.slider("Posición Y", min_value=0, max_value=800, value=410)
+
 if username:
     draw = ImageDraw.Draw(img)
 
     try:
         # Intentar cargar una fuente específica
         font_path = "arial.ttf"  # Asegúrate de incluir esta fuente en el folder si la usas
-        font_size = 40
         try:
             font = ImageFont.truetype(font_path, font_size)
         except:
@@ -30,9 +40,9 @@ if username:
             st.warning("No se encontró la fuente especificada. Se usará una fuente predeterminada.")
 
         # Definir posición y estilo del texto para efecto grabado
-        text_position = (540, 410)  # Posición aproximada para el nombre
-        engraving_color = (80, 40, 40)  # Color oscuro para simular profundidad
-        highlight_color = (139, 0, 0)  # Color más claro para el borde superior
+        text_position = (x_pos, y_pos)  # Posición dinámica basada en sliders
+        engraving_color = (r, g, b)  # Color grabado dinámico
+        highlight_color = (r + 59 if r + 59 <= 255 else 255, g, b)  # Ajuste de brillo para resaltar
         shadow_color = (0, 0, 0)  # Sombra negra para profundidad
 
         # Calcular el tamaño del texto usando textbbox
